@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Private References 
     CharacterController controller;
+    Transform origPlayerCam;
 
     //Private
     float x, z;
@@ -42,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        origPlayerCam = playerCam;
     }
 
     void Update()
@@ -97,6 +99,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private float desiredX;
+    float camMin;
+    float camMax;
     void Look()
     {
         float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.fixedDeltaTime;
@@ -110,8 +114,34 @@ public class PlayerMovement : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -85f, 85f);
 
+        //If leaning, clamp rotation
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            camMin = desiredX;
+            camMax = desiredX + 30;
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            camMin = desiredX - 30;
+            camMax = desiredX;
+        }
+        if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.E))
+        {
+            desiredX = ClampAngle(desiredX, camMin, camMax);
+        }
         //Perform the rotations
         playerCam.transform.localRotation = Quaternion.Euler(xRotation, desiredX, playerCam.eulerAngles.z);
+        DebugLogger.Log(desiredX, 2);
+
         transform.localRotation = Quaternion.Euler(0, desiredX, 0);
+    }
+
+    float ClampAngle(float angle, float min, float max)
+    {
+        float start = (min + max) * 0.5f - 180;
+        float floor = Mathf.FloorToInt((angle - start) / 360) * 360;
+        min += floor;
+        max += floor;
+        return Mathf.Clamp(angle, min, max);
     }
 }

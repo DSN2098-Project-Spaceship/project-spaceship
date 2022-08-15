@@ -13,11 +13,13 @@ public class LeaningController : MonoBehaviour
     Vector3 defaultRot;
     Vector3 currentPos;
     Vector3 currentRot;
+    PlayerMovement playerMovement;
 
     private void Start()
     {
         defaultPos = transform.localPosition;
         defaultRot = transform.localEulerAngles;
+        playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
     private void Update()
@@ -43,4 +45,5 @@ public class LeaningController : MonoBehaviour
         newRot.eulerAngles = currentRot;
         transform.localRotation = Quaternion.Lerp(transform.localRotation, newRot, Time.deltaTime * 3);
     }
+
 }

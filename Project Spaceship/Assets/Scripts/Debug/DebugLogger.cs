@@ -51,7 +51,7 @@ public class DebugLogger : MonoBehaviour
         }
     }
 
-    public static void Log(string message, int channel)
+    public static void Log(object message, int channel)
     {
         if (channel > channels.Count)
         {
