@@ -16,7 +16,7 @@ public class DoorController : MonoBehaviour
     [SerializeField] DoorDir doorDir = DoorDir.z;
     [SerializeField] Transform doorL, doorR;
     [SerializeField] float openSpeed = 2;
-
+    [SerializeField] List<string> allowedTags = new List<string>();
 
     private Vector3 _doorLDefaultPos;
     private Vector3 _doorRDefaultPos;
@@ -39,41 +39,45 @@ public class DoorController : MonoBehaviour
         {
             case DoorDir.z:
                 doorL.localPosition = new Vector3(doorL.localPosition.x, doorL.localPosition.y,
-                    Mathf.Lerp(doorL.localPosition.z,_doorLDefaultPos.z - (_open ? openAmount : 0), Time.deltaTime * openSpeed));
-                if(_doubleDoor)
+                    Mathf.Lerp(doorL.localPosition.z, _doorLDefaultPos.z - (_open ? openAmount : 0), Time.deltaTime * openSpeed));
+                if (_doubleDoor)
                     doorR.localPosition = new Vector3(doorR.localPosition.x, doorR.localPosition.y,
-                        Mathf.Lerp(doorR.localPosition.z,_doorRDefaultPos.z + (_open ? openAmount : 0), Time.deltaTime * openSpeed));
+                        Mathf.Lerp(doorR.localPosition.z, _doorRDefaultPos.z + (_open ? openAmount : 0), Time.deltaTime * openSpeed));
                 break;
             case DoorDir.x:
-                doorL.localPosition = new Vector3(Mathf.Lerp(doorL.localPosition.x,_doorLDefaultPos.x - (_open ? openAmount : 0), Time.deltaTime * openSpeed),
+                doorL.localPosition = new Vector3(Mathf.Lerp(doorL.localPosition.x, _doorLDefaultPos.x - (_open ? openAmount : 0), Time.deltaTime * openSpeed),
                     doorL.localPosition.y, doorL.localPosition.z);
-                if(_doubleDoor)
-                    doorR.localPosition = new Vector3(Mathf.Lerp(doorR.localPosition.x,_doorRDefaultPos.x + (_open ? openAmount : 0), Time.deltaTime * openSpeed),
+                if (_doubleDoor)
+                    doorR.localPosition = new Vector3(Mathf.Lerp(doorR.localPosition.x, _doorRDefaultPos.x + (_open ? openAmount : 0), Time.deltaTime * openSpeed),
                         doorR.localPosition.y, doorR.localPosition.z);
                 break;
             case DoorDir.y:
-                doorL.localPosition = new Vector3(doorL.localPosition.x, 
-                    Mathf.Lerp(doorL.localPosition.y,_doorLDefaultPos.y + (_open ? openAmount : 0), Time.deltaTime * openSpeed),
+                doorL.localPosition = new Vector3(doorL.localPosition.x,
+                    Mathf.Lerp(doorL.localPosition.y, _doorLDefaultPos.y + (_open ? openAmount : 0), Time.deltaTime * openSpeed),
                     doorL.localPosition.z);
-                if(_doubleDoor)
-                    doorR.localPosition = new Vector3(doorR.localPosition.x, 
-                        Mathf.Lerp(doorR.localPosition.y,_doorRDefaultPos.y + (_open ? openAmount : 0), Time.deltaTime * openSpeed),
+                if (_doubleDoor)
+                    doorR.localPosition = new Vector3(doorR.localPosition.x,
+                        Mathf.Lerp(doorR.localPosition.y, _doorRDefaultPos.y + (_open ? openAmount : 0), Time.deltaTime * openSpeed),
                         doorR.localPosition.z);
                 break;
         }
     }
 
+    List<string> enteredObs = new List<string>();
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        DebugLogger.Log(other.transform.name, 2);
+        if (allowedTags.Contains(other.tag))
         {
             _open = true & isActive;
+            enteredObs.Add(other.tag);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (enteredObs.Contains(other.tag)) { enteredObs.Remove(other.tag); }
+        if (enteredObs.Count <= 0)
         {
             _open = false;
         }

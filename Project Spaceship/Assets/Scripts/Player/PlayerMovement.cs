@@ -131,8 +131,6 @@ public class PlayerMovement : MonoBehaviour
         }
         //Perform the rotations
         playerCam.transform.localRotation = Quaternion.Euler(xRotation, desiredX, playerCam.eulerAngles.z);
-        DebugLogger.Log(desiredX, 2);
-
         transform.localRotation = Quaternion.Euler(0, desiredX, 0);
     }
 

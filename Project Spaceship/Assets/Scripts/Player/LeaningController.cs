@@ -26,13 +26,15 @@ public class LeaningController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Q))
         {
-            currentPos = defaultPos - sidePos;
-            currentRot = defaultPos + newRotation;
+            float clampedSidePos = Mathf.Clamp(sidePos.x, 0, RayCheck(-transform.right));
+            currentPos = defaultPos - new Vector3(clampedSidePos, sidePos.y, sidePos.z);
+            currentRot = defaultPos + newRotation * clampedSidePos / sidePos.x;
         }
         else if (Input.GetKey(KeyCode.E))
         {
-            currentPos = defaultPos + sidePos;
-            currentRot = defaultRot - newRotation;
+            float clampedSidePos = Mathf.Clamp(sidePos.x, 0, RayCheck(transform.right));
+            currentPos = defaultPos + new Vector3(clampedSidePos, sidePos.y, sidePos.z);
+            currentRot = defaultRot - newRotation * clampedSidePos / sidePos.x; ;
         }
         else
         {
@@ -44,6 +46,29 @@ public class LeaningController : MonoBehaviour
         Quaternion newRot = Quaternion.identity;
         newRot.eulerAngles = currentRot;
         transform.localRotation = Quaternion.Lerp(transform.localRotation, newRot, Time.deltaTime * 3);
+    }
+
+    float RayCheck(Vector3 dir)
+    {
+        Ray ray = new Ray(transform.position, dir);
+        // Debug.DrawRay(transform.position, dir, Color.green, 3);
+        if (Physics.Raycast(ray, out RaycastHit hit, sidePos.x))
+        {
+            return Vector3.Distance(transform.position, hit.point);
+        }
+        return sidePos.x;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Ray ray1 = new Ray(transform.position, transform.right);
+        Ray ray2 = new Ray(transform.position, -transform.right);
+        Debug.DrawRay(transform.position, transform.right, Color.green);
+        Debug.DrawRay(transform.position, -transform.right, Color.green);
+        if (Physics.Raycast(ray1, out RaycastHit hit1, 10))
+        { Gizmos.DrawSphere(hit1.point, .1f); }
+        if (Physics.Raycast(ray2, out RaycastHit hit2, 10))
+        { Gizmos.DrawSphere(hit2.point, .1f); }
     }
 
 }
