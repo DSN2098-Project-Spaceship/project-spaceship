@@ -1,21 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
+using UnityEngine.AI;
 
 public class BaseController : MonoBehaviour
 {
-    AIPath agent;
-    Transform player;
+    private NavMeshAgent _agent;
+    private Transform _player;
 
     private void Awake()
     {
-        agent = GetComponent<AIPath>();
-        player = GameObject.FindWithTag("Player").transform;
+        _agent = GetComponent<NavMeshAgent>();
     }
-    void Update()
+
+    public void GoToPosition(Vector3 position, float stoppingDistance = 0, float speed = 3)
     {
-        agent.destination = player.position;
-        agent.SearchPath();
+        _agent.stoppingDistance = stoppingDistance;
+        _agent.speed = speed;
+
+        _agent.SetDestination(position);
     }
 }
