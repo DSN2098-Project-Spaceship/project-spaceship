@@ -47,5 +47,10 @@ namespace Enemy
         {
             _myController.GoToPosition(_player.position, 2);
         }
+
+        public void PowerOn()
+        {
+            state = EnemyState.Chase;
+        }
     }
 }
