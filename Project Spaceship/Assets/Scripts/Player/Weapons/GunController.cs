@@ -21,13 +21,18 @@ public class GunController : MonoBehaviour
 
     //Private 
     float nextTimeToFire;
-
+    Recoil recoil;
+    private void Start()
+    {
+        recoil = FindObjectOfType<Recoil>();
+    }
 
     private void Update()
     {
         if (Time.time > nextTimeToFire && Input.GetKey(KeyCode.Mouse0))
         {
             Shoot();
+            recoil.DoRecoil();
             nextTimeToFire = Time.time + 1 / fireRate;
         }
     }
