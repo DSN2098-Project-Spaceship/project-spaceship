@@ -10,11 +10,11 @@ namespace Enemy
         [System.Serializable]
         public enum EnemyState
         {
-             Unpowered, Chase
+            Unpowered, Chase
         }
 
         [SerializeField] EnemyState state = EnemyState.Unpowered;
-        
+
         //private
         private BaseController _myController;
         private Transform _player;
@@ -27,7 +27,7 @@ namespace Enemy
 
         private void Update()
         {
-            switch(state)
+            switch (state)
             {
                 case EnemyState.Unpowered:
                     Unpowered();
@@ -40,7 +40,7 @@ namespace Enemy
 
         void Unpowered()
         {
-            
+
         }
 
         void Chase()

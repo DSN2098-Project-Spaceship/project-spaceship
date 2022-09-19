@@ -22,17 +22,21 @@ public class GunController : MonoBehaviour
     //Private 
     float nextTimeToFire;
     Recoil recoil;
+    AudioSource gunSound;
+    bool powerOn = false;
     private void Start()
     {
         recoil = FindObjectOfType<Recoil>();
+        gunSound = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
-        if (Time.time > nextTimeToFire && Input.GetKey(KeyCode.Mouse0))
+        if (Time.time > nextTimeToFire && Input.GetKey(KeyCode.Mouse0) && powerOn)
         {
             Shoot();
             recoil.DoRecoil();
+            gunSound.Play();
             nextTimeToFire = Time.time + 1 / fireRate;
         }
     }
@@ -53,5 +57,10 @@ public class GunController : MonoBehaviour
                 break;
         }
 
+    }
+
+    public void PowerOn()
+    {
+        powerOn = true;
     }
 }

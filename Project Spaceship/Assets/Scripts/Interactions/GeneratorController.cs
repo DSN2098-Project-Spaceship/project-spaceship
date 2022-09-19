@@ -6,12 +6,29 @@ using UnityEngine;
 
 public class GeneratorController : MonoBehaviour
 {
-    private void OnTriggerStay(Collider other)
+    bool isplayer;
+    private void OnTriggerEnter(Collider other)
     {
-        DebugLogger.Log("hello", 2);
-        if(Input.GetKeyDown(KeyCode.F) && other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
+            isplayer = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isplayer = false;
+        }
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F) && isplayer)
+        {
+            DebugLogger.Log("Happen Gen", 5);
             ZombieAI[] zm = FindObjectsOfType<ZombieAI>();
+            FindObjectOfType<GunController>().PowerOn();
             foreach (ZombieAI z in zm)
             {
                 z.PowerOn();

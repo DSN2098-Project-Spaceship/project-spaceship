@@ -66,7 +66,7 @@ public class DoorController : MonoBehaviour
     List<string> enteredObs = new List<string>();
     private void OnTriggerEnter(Collider other)
     {
-        DebugLogger.Log(other.transform.name, 2);
+        DebugLogger.Log(other.transform.name, 6);
         if (allowedTags.Contains(other.tag))
         {
             _open = true & isActive;

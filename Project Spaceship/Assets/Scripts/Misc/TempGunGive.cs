@@ -5,10 +5,28 @@ using UnityEngine;
 public class TempGunGive : MonoBehaviour
 {
     [SerializeField] GameObject gun;
-    private void OnTriggerStay(Collider other)
+    bool isplayer;
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.F))
+        if (other.CompareTag("Player"))
         {
+            isplayer = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isplayer = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F) && isplayer)
+        {
+            DebugLogger.Log("Heppen Gun", 5);
             gun.SetActive(true);
             Destroy(gameObject);
         }
