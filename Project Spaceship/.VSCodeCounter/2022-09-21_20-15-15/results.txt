@@ -1,0 +1,64 @@
+Date : 2022-09-21 20:15:15
+Directory : c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship
+Total : 23 files,  1392 codes, 45 comments, 161 blanks, all 1598 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C#       |         17 |        861 |         45 |        159 |      1,065 |
+| JSON     |          3 |        513 |          0 |          2 |        515 |
+| XML      |          3 |         18 |          0 |          0 |         18 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                                         | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                                            |         23 |      1,392 |         45 |        161 |      1,598 |
+| .idea                                                                                                                                                        |          3 |         18 |          0 |          0 |         18 |
+| .idea\.idea.Project Spaceship                                                                                                                                |          3 |         18 |          0 |          0 |         18 |
+| .idea\.idea.Project Spaceship\.idea                                                                                                                          |          3 |         18 |          0 |          0 |         18 |
+| Assets                                                                                                                                                       |         16 |        753 |         45 |        114 |        912 |
+| Assets\Scripts                                                                                                                                               |         16 |        753 |         45 |        114 |        912 |
+| Assets\Scripts\Damage                                                                                                                                        |          1 |         28 |          4 |          6 |         38 |
+| Assets\Scripts\Debug                                                                                                                                         |          1 |         58 |          2 |          9 |         69 |
+| Assets\Scripts\Enemy                                                                                                                                         |          4 |        183 |         25 |         30 |        238 |
+| Assets\Scripts\Interactions                                                                                                                                  |          2 |        131 |          0 |         10 |        141 |
+| Assets\Scripts\Misc                                                                                                                                          |          3 |         60 |          0 |          9 |         69 |
+| Assets\Scripts\Player                                                                                                                                        |          5 |        293 |         14 |         50 |        357 |
+| Assets\Scripts\Player\Weapons                                                                                                                                |          2 |        103 |          3 |         17 |        123 |
+| Packages                                                                                                                                                     |          4 |        621 |          0 |         47 |        668 |
+| Packages\com.alexismorin.lightprobepopulator@1.0.0                                                                                                           |          2 |        120 |          0 |         45 |        165 |
+| Packages\com.alexismorin.lightprobepopulator@1.0.0\Editor                                                                                                    |          1 |        108 |          0 |         45 |        153 |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                                                                     | language | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\.idea\.idea.Project Spaceship\.idea\encodings.xml                                | XML      |          4 |          0 |          0 |          4 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\.idea\.idea.Project Spaceship\.idea\indexLayout.xml                              | XML      |          8 |          0 |          0 |          8 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\.idea\.idea.Project Spaceship\.idea\vcs.xml                                      | XML      |          6 |          0 |          0 |          6 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Damage\GlobalDamageSystem.cs                                      | C#       |         28 |          4 |          6 |         38 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Debug\DebugLogger.cs                                              | C#       |         58 |          2 |          9 |         69 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Enemy\BaseController.cs                                           | C#       |         26 |          1 |          6 |         33 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Enemy\CoverSort.cs                                                | C#       |         78 |         23 |         12 |        113 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Enemy\ZombieAI.cs                                                 | C#       |         64 |          1 |         10 |         75 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Enemy\ZoneController.cs                                           | C#       |         15 |          0 |          2 |         17 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Interactions\DoorController.cs                                    | C#       |         95 |          0 |          7 |        102 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Interactions\GeneratorController.cs                               | C#       |         36 |          0 |          3 |         39 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Misc\LineFade.cs                                                  | C#       |         18 |          0 |          3 |         21 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Misc\TempGunGive.cs                                               | C#       |         31 |          0 |          4 |         35 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Misc\WeaponBounce.cs                                              | C#       |         11 |          0 |          2 |         13 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Player\CameraController.cs                                        | C#       |         11 |          0 |          2 |         13 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Player\LeaningController.cs                                       | C#       |         63 |          3 |          9 |         75 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Player\PlayerMovement.cs                                          | C#       |        116 |          8 |         22 |        146 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Player\Weapons\GunController.cs                                   | C#       |         68 |          3 |         12 |         83 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Player\Weapons\Recoil.cs                                          | C#       |         35 |          0 |          5 |         40 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Packages\com.alexismorin.lightprobepopulator@1.0.0\Editor\GenerateLightProbes.cs | C#       |        108 |          0 |         45 |        153 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Packages\com.alexismorin.lightprobepopulator@1.0.0\package.json                  | JSON     |         12 |          0 |          0 |         12 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Packages\manifest.json                                                           | JSON     |         47 |          0 |          1 |         48 |
+| c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Packages\packages-lock.json                                                      | JSON     |        454 |          0 |          1 |        455 |
+| Total                                                                                                                                                        |          |      1,392 |         45 |        161 |      1,598 |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

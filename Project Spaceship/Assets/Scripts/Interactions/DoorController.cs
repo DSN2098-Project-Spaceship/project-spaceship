@@ -17,14 +17,17 @@ public class DoorController : MonoBehaviour
     [SerializeField] Transform doorL, doorR;
     [SerializeField] float openSpeed = 2;
     [SerializeField] List<string> allowedTags = new List<string>();
-
+    [SerializeField] AudioClip doorOpen, doorClosed;
+    private AudioSource doorSound;
     private Vector3 _doorLDefaultPos;
     private Vector3 _doorRDefaultPos;
     private bool _open;
     private bool _doubleDoor;
+    private bool _openSoundPlayed;
 
     private void Start()
     {
+        doorSound = GetComponent<AudioSource>();
         _doorLDefaultPos = doorL.localPosition;
         if (doorR != null)
         {
@@ -71,6 +74,12 @@ public class DoorController : MonoBehaviour
         {
             _open = true & isActive;
             enteredObs.Add(other.tag);
+            if (!_openSoundPlayed)
+            {
+                doorSound.clip = doorOpen;
+                doorSound.Play();
+                _openSoundPlayed = true;
+            }
         }
     }
 
@@ -80,6 +89,12 @@ public class DoorController : MonoBehaviour
         if (enteredObs.Count <= 0)
         {
             _open = false;
+            if (_openSoundPlayed)
+            {
+                doorSound.clip = doorClosed;
+                doorSound.Play();
+                _openSoundPlayed = false;
+            }
         }
     }
 }

@@ -8,19 +8,27 @@ public class GlobalDamageSystem : MonoBehaviour
     //public
     [SerializeField] UnityEvent deathEvent;
     //Serialized Vars
-    [SerializeField] int health =10;
+    [SerializeField] int health = 10;
     //private
+    AudioSource source;
+
+    private void Start()
+    {
+        TryGetComponent<AudioSource>(out source);
+    }
 
     public void TakeDamage(int damage)
     {
         //take damage
         health -= damage;
+        if (source != null) { source.Play(); }
         DebugLogger.Log("Took damage on object: " + transform.name, 4);
         if (health <= 0)
         {
             deathEvent.Invoke();
         }
     }
+
 
     public void _SimpleDeath()
     {

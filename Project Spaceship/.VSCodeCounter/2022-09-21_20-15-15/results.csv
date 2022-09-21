@@ -1,0 +1,25 @@
+"filename", "language", "XML", "JSON", "C#", "comment", "blank", "total"
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\.idea\.idea.Project Spaceship\.idea\encodings.xml", "XML", 4, 0, 0, 0, 0, 4
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\.idea\.idea.Project Spaceship\.idea\indexLayout.xml", "XML", 8, 0, 0, 0, 0, 8
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\.idea\.idea.Project Spaceship\.idea\vcs.xml", "XML", 6, 0, 0, 0, 0, 6
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Damage\GlobalDamageSystem.cs", "C#", 0, 0, 28, 4, 6, 38
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Debug\DebugLogger.cs", "C#", 0, 0, 58, 2, 9, 69
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Enemy\BaseController.cs", "C#", 0, 0, 26, 1, 6, 33
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Enemy\CoverSort.cs", "C#", 0, 0, 78, 23, 12, 113
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Enemy\ZombieAI.cs", "C#", 0, 0, 64, 1, 10, 75
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Enemy\ZoneController.cs", "C#", 0, 0, 15, 0, 2, 17
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Interactions\DoorController.cs", "C#", 0, 0, 95, 0, 7, 102
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Interactions\GeneratorController.cs", "C#", 0, 0, 36, 0, 3, 39
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Misc\LineFade.cs", "C#", 0, 0, 18, 0, 3, 21
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Misc\TempGunGive.cs", "C#", 0, 0, 31, 0, 4, 35
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Misc\WeaponBounce.cs", "C#", 0, 0, 11, 0, 2, 13
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Player\CameraController.cs", "C#", 0, 0, 11, 0, 2, 13
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Player\LeaningController.cs", "C#", 0, 0, 63, 3, 9, 75
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Player\PlayerMovement.cs", "C#", 0, 0, 116, 8, 22, 146
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Player\Weapons\GunController.cs", "C#", 0, 0, 68, 3, 12, 83
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Assets\Scripts\Player\Weapons\Recoil.cs", "C#", 0, 0, 35, 0, 5, 40
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Packages\com.alexismorin.lightprobepopulator@1.0.0\Editor\GenerateLightProbes.cs", "C#", 0, 0, 108, 0, 45, 153
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Packages\com.alexismorin.lightprobepopulator@1.0.0\package.json", "JSON", 0, 12, 0, 0, 0, 12
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Packages\manifest.json", "JSON", 0, 47, 0, 0, 1, 48
+"c:\Users\sohra\Documents\Unity Projects\project-spaceship\Project Spaceship\Packages\packages-lock.json", "JSON", 0, 454, 0, 0, 1, 455
+"Total", "-", 18, 513, 861, 45, 161, 1598

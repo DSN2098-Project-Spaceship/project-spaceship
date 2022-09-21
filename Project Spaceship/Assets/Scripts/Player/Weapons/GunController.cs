@@ -18,16 +18,24 @@ public class GunController : MonoBehaviour
 
     //Serialized References
     [SerializeField] Camera mainCam;
+    [SerializeField] Transform shootPos;
+    [SerializeField] GameObject bulletTrail;
+    [SerializeField] Light spot;
 
     //Private 
+    LineRenderer lineRen;
     float nextTimeToFire;
     Recoil recoil;
     AudioSource gunSound;
     bool powerOn = false;
+    float currSpotIntensity;
+    float maxSpotInt;
     private void Start()
     {
         recoil = FindObjectOfType<Recoil>();
         gunSound = GetComponent<AudioSource>();
+        maxSpotInt = spot.intensity;
+        if (!powerOn) { spot.intensity = 0; } else { currSpotIntensity = spot.intensity; }
     }
 
     private void Update()
@@ -39,6 +47,7 @@ public class GunController : MonoBehaviour
             gunSound.Play();
             nextTimeToFire = Time.time + 1 / fireRate;
         }
+        spot.intensity = Mathf.Lerp(spot.intensity, currSpotIntensity, Time.deltaTime * .45f);
     }
 
     void Shoot()
@@ -53,6 +62,12 @@ public class GunController : MonoBehaviour
                     {
                         GDSystem.TakeDamage(damage);
                     }
+
+                    lineRen = Instantiate(bulletTrail, Vector3.zero, Quaternion.identity).GetComponent<LineRenderer>();
+                    Destroy(lineRen.gameObject, 1);
+
+                    lineRen.SetPosition(0, shootPos.position);
+                    lineRen.SetPosition(1, hit.point);
                 }
                 break;
         }
@@ -62,5 +77,6 @@ public class GunController : MonoBehaviour
     public void PowerOn()
     {
         powerOn = true;
+        currSpotIntensity = maxSpotInt;
     }
 }
