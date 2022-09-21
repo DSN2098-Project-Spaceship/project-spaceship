@@ -34,4 +34,21 @@ public class GlobalDamageSystem : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public void RigidDeath()
+    {
+        Rigidbody[] rb = GetComponentsInChildren<Rigidbody>();
+        Collider[] co = GetComponentsInChildren<Collider>();
+        foreach (Rigidbody r in rb)
+        {
+            r.isKinematic = false;
+        }
+        foreach (Collider c in co)
+        {
+            c.isTrigger = false;
+        }
+        GetComponentInChildren<Animator>().enabled = false;
+        GetComponentInChildren<Animator>().transform.parent = null;
+        Destroy(gameObject);
+    }
 }
