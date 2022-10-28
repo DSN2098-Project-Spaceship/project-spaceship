@@ -24,13 +24,15 @@ public class LeaningController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q))    //If lean left
         {
+            //clamp max angle to the distance to the closest object on the left
             float clampedSidePos = Mathf.Clamp(sidePos.x, 0, RayCheck(-transform.right));
+            //Update position and rotation of camera
             currentPos = defaultPos - new Vector3(clampedSidePos, sidePos.y, sidePos.z);
             currentRot = defaultPos + newRotation * clampedSidePos / sidePos.x;
         }
-        else if (Input.GetKey(KeyCode.E))
+        else if (Input.GetKey(KeyCode.E))   //If lean right
         {
             float clampedSidePos = Mathf.Clamp(sidePos.x, 0, RayCheck(transform.right));
             currentPos = defaultPos + new Vector3(clampedSidePos, sidePos.y, sidePos.z);
@@ -38,10 +40,12 @@ public class LeaningController : MonoBehaviour
         }
         else
         {
+            //Reset when not pressing
             currentPos = defaultPos;
             currentRot = defaultRot;
         }
 
+        //Actually perform rotation and movements
         transform.localPosition = Vector3.Lerp(transform.localPosition, currentPos, Time.deltaTime * 3);
         Quaternion newRot = Quaternion.identity;
         newRot.eulerAngles = currentRot;

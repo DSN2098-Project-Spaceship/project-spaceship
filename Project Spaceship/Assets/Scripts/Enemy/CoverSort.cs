@@ -42,24 +42,27 @@ public class CoverSort : MonoBehaviour
     {
         //Raycast from cover to player to see if it's eligible to be used
         // if (isDisabled) return;
-        for (int i = 0; i < allCover.allZones[currentZone].allCovers.Count; i++)
+        for (int i = 0; i < allCover.allZones[currentZone].allCovers.Count; i++)    //For all cover posses in the current zone
         {
             RaycastHit hit;
-            // Debug.DrawRay(allCover[i].position, (player.transform.position - allCover[i].position));
+            //If there is an obstacle between the cover position and player, add it to the list of eligible positions (if not already present)
             if (Physics.Raycast(allCover.allZones[currentZone].allCovers[i].position, (player.transform.position - allCover.allZones[currentZone].allCovers[i].position), 100f, obsMask))
             {
                 if (!eligibleCover.Contains(allCover.allZones[currentZone].allCovers[i]))
                     eligibleCover.Add(allCover.allZones[currentZone].allCovers[i]);  //Add eligible cover to a list of eligible covers
             }
+            //If it there is no obj between the player and cover pos, and it is present in the eligible cover list, remove it. 
             else if (eligibleCover.Contains(allCover.allZones[currentZone].allCovers[i]))
             {
                 eligibleCover.Remove(allCover.allZones[currentZone].allCovers[i]);
             }
         }
 
+        //Sort enemies and cover list baseed on distance to player
         enemies.Sort((x, y) => { return (player.transform.position - x.transform.position).sqrMagnitude.CompareTo((player.transform.position - y.transform.position).sqrMagnitude); });
         eligibleCover.Sort((x, y) => { return (player.transform.position - x.position).sqrMagnitude.CompareTo((player.transform.position - y.position).sqrMagnitude); });
 
+        //Update AI's internal cover pos (not yet implemented)
         for (int i = 0; i < enemies.Count && i < eligibleCover.Count; i++)
         {
             enemies[i].transform.position = eligibleCover[i].position;

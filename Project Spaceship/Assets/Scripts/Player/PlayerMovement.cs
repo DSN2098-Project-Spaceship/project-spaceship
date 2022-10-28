@@ -68,28 +68,33 @@ public class PlayerMovement : MonoBehaviour
     void Movement()
     {
         speedRn = Mathf.Abs(x) == 1 || Mathf.Abs(z) == 1 ? Mathf.Lerp(speedRn, groundSpeedMax, Time.deltaTime * acceleration) : groundSpeed;
+        //If any directional key held, accelerate the player to max speed
+
         if (grounded)
         {
-            moveDirection = new Vector3(x * groundSpeed, -.75f, z * speedRn);
+            moveDirection = new Vector3(x * groundSpeed, -.75f, z * speedRn);   //Define movement vector
             moveDirection = transform.TransformDirection(moveDirection);
 
-            groundJumpDir = new Vector2(x, z);
+            groundJumpDir = new Vector2(x, z);  //Keep a log of last movement direction
         }
         else
         {
+            //If not on ground, allow player only max vel on the direction of jump
             moveDirection.x = x * (Mathf.Sign(groundJumpDir.x) == Mathf.Sign(x) && groundJumpDir.x != 0 ? speedRn : airSpeed);
             moveDirection.z = z * (Mathf.Sign(groundJumpDir.y) == Mathf.Sign(z) && groundJumpDir.y != 0 ? speedRn : airSpeed);
             moveDirection = transform.TransformDirection(moveDirection);
 
+            //Increment coyote timer
             coyoteTimeRn += Time.deltaTime;
         }
 
+        //If jump key is pressed and coyote time is available, jump
         if (jumping && coyoteTimeRn <= coyoteTime)
         {
             moveDirection.y = jumpHeight;
         }
 
-        moveDirection.y -= 20 * Time.deltaTime;
+        moveDirection.y -= 20 * Time.deltaTime;     //Gravity
         grounded = (controller.Move(moveDirection * Time.deltaTime) & CollisionFlags.Below) != 0;
 
         if (grounded)
