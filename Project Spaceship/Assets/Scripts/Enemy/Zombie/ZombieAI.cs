@@ -6,12 +6,12 @@ using UnityEngine;
 public class ZombieAI : MonoBehaviour
 {
     [System.Serializable]
-    public enum EnemyState
+    public enum ZombieState
     {
         Unpowered, Chase
     }
 
-    [SerializeField] EnemyState state = EnemyState.Unpowered;
+    [SerializeField] ZombieState state = ZombieState.Unpowered;
 
     //private
     private BaseController _myController;
@@ -43,10 +43,10 @@ public class ZombieAI : MonoBehaviour
     {
         switch (state)
         {
-            case EnemyState.Unpowered:
+            case ZombieState.Unpowered:
                 Unpowered();
                 break;
-            case EnemyState.Chase:
+            case ZombieState.Chase:
                 Chase();
                 break;
         }
@@ -83,6 +83,6 @@ public class ZombieAI : MonoBehaviour
 
     public void PowerOn()
     {
-        state = EnemyState.Chase;
+        state = ZombieState.Chase;
     }
 }

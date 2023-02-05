@@ -17,7 +17,7 @@ public class CoverSort : MonoBehaviour
     }
     //Serialized
     [SerializeField] ZonesClass allCover = new ZonesClass();
-    [SerializeField] List<Transform> enemies = new List<Transform>();
+    [SerializeField] List<Smart> enemies = new List<Smart>();
     [SerializeField] float checkDelay;
     [SerializeField] LayerMask obsMask;
     int currentZone;
@@ -44,7 +44,7 @@ public class CoverSort : MonoBehaviour
         // if (isDisabled) return;
         for (int i = 0; i < allCover.allZones[currentZone].allCovers.Count; i++)    //For all cover posses in the current zone
         {
-            RaycastHit hit;
+            // RaycastHit hit;
             //If there is an obstacle between the cover position and player, add it to the list of eligible positions (if not already present)
             if (Physics.Raycast(allCover.allZones[currentZone].allCovers[i].position, (player.transform.position - allCover.allZones[currentZone].allCovers[i].position), 100f, obsMask))
             {
@@ -63,25 +63,19 @@ public class CoverSort : MonoBehaviour
         eligibleCover.Sort((x, y) => { return (player.transform.position - x.position).sqrMagnitude.CompareTo((player.transform.position - y.position).sqrMagnitude); });
 
         //Update AI's internal cover pos (not yet implemented)
-        for (int i = 0; i < enemies.Count && i < eligibleCover.Count; i++)
+        for (int i = 0; i < enemies.Count; i++)
         {
-            enemies[i].transform.position = eligibleCover[i].position;
-            // state = enemies[i].GetComponent<ZombieAI>();
-            // //Debug.Log(state.isDead);
-            // if (!state.isDead)
-            // {
-            //     state.coverLocation = eligibleCover[i];
-            //     if (eligibleCover[i].CompareTag("Aside"))
-            //     {
-            //         state.isStepAside = true;
-            //         state.asidePos = eligibleCover[i].GetChild(0);
-            //     }
-            //     else
-            //     {
-            //         state.isStepAside = false;
-            //         state.asidePos = null;
-            //     }
-            // }
+            if (eligibleCover.Count == 0) return;
+            if (i < eligibleCover.Count)
+            {
+                enemies[i].myCoverPos = eligibleCover[i].position;
+                // if (enemies[i].state != Smart.EnemyState.strafing)
+                // { enemies[i].state = Smart.EnemyState.covering; }
+            }
+            else
+            {
+                // if (enemies[i].state != Smart.EnemyState.strafing) enemies[i].state = Smart.EnemyState.shooting;
+            }
         }
 
         // eligibleCover.Clear();

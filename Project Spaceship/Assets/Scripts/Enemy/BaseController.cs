@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class BaseController : MonoBehaviour
 {
     //Serialized Field
@@ -17,7 +18,8 @@ public class BaseController : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
         _agent.avoidancePriority = Random.Range((int)priority.x, (int)priority.y);
-        _anim = GetComponentInChildren<Animator>();
+        // _anim = GetComponentInChildren<Animator>();
+        TryGetComponent<Animator>(out _anim);
     }
 
     public void GoToPosition(Vector3 position, float stoppingDistance = 0, float speed = 1)
@@ -27,6 +29,12 @@ public class BaseController : MonoBehaviour
 
         _agent.SetDestination(position);
 
-        _anim.SetFloat("Speed", _agent.velocity.magnitude / _agent.speed);
+        if (_anim != null) _anim.SetFloat("Speed", _agent.velocity.magnitude / _agent.speed);
+    }
+
+    public float RemainingDistance()
+    {
+        if (_agent.hasPath) return _agent.remainingDistance;
+        return Mathf.Infinity;
     }
 }
