@@ -1330,6 +1330,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3417440015135362495, guid: be2560e97dfe357438599387c9ed17e1,
+        type: 3}
+      propertyPath: powerOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559278295561326760, guid: be2560e97dfe357438599387c9ed17e1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: be2560e97dfe357438599387c9ed17e1, type: 3}
@@ -2317,6 +2327,8 @@ GameObject:
   - component: {fileID: 782729620}
   - component: {fileID: 782729619}
   - component: {fileID: 782729618}
+  - component: {fileID: 782729621}
+  - component: {fileID: 782729622}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -2389,6 +2401,47 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &782729621
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782729616}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 2, z: 0.5}
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &782729622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782729616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6707de6f5a913fe46843b832fedb85df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 782729622}
+        m_TargetAssemblyTypeName: GlobalDamageSystem, Assembly-CSharp
+        m_MethodName: _SimpleDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  health: 10
 --- !u!1 &784523149
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,6 +2525,8 @@ GameObject:
   - component: {fileID: 828954271}
   - component: {fileID: 828954270}
   - component: {fileID: 828954269}
+  - component: {fileID: 828954272}
+  - component: {fileID: 828954273}
   m_Layer: 0
   m_Name: TestEnemy (1)
   m_TagString: Untagged
@@ -2544,6 +2599,47 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &828954272
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828954267}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 2, z: 0.5}
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &828954273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828954267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6707de6f5a913fe46843b832fedb85df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 782729622}
+        m_TargetAssemblyTypeName: GlobalDamageSystem, Assembly-CSharp
+        m_MethodName: _SimpleDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  health: 10
 --- !u!1 &875587361
 GameObject:
   m_ObjectHideFlags: 0
@@ -3634,6 +3730,8 @@ GameObject:
   - component: {fileID: 1370884065}
   - component: {fileID: 1370884064}
   - component: {fileID: 1370884063}
+  - component: {fileID: 1370884066}
+  - component: {fileID: 1370884067}
   m_Layer: 0
   m_Name: TestEnemy (2)
   m_TagString: Untagged
@@ -3706,6 +3804,47 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &1370884066
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370884061}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 2, z: 0.5}
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1370884067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370884061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6707de6f5a913fe46843b832fedb85df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 782729622}
+        m_TargetAssemblyTypeName: GlobalDamageSystem, Assembly-CSharp
+        m_MethodName: _SimpleDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  health: 10
 --- !u!1 &1402926518
 GameObject:
   m_ObjectHideFlags: 0
@@ -4720,7 +4859,7 @@ MonoBehaviour:
     debugColor: {r: 1, g: 0.17358488, b: 0.17358488, a: 0}
     prefix: 'ERROR: '
   - name: Damage
-    isActive: 0
+    isActive: 1
     debugColor: {r: 1, g: 0.9971434, b: 0.76792455, a: 0}
     prefix: 
   - name: Special Event

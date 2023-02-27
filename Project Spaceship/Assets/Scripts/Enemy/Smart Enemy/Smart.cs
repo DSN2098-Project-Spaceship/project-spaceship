@@ -77,4 +77,9 @@ public class Smart : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+    }
 }

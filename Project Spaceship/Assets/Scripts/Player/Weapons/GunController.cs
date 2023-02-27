@@ -27,7 +27,7 @@ public class GunController : MonoBehaviour
     float nextTimeToFire;
     Recoil recoil;
     AudioSource gunSound;
-    bool powerOn = false;
+    [SerializeField] bool powerOn = false;
     float currSpotIntensity;
     float maxSpotInt;
     private void Start()
